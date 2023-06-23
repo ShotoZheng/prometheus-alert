@@ -1,0 +1,22 @@
+server:
+  port: 8081
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*' ## 暴露所有 http actuator 端点
+  endpoint:
+    health:
+      show-details: always ## 支持显示 health 端点明细
+  metrics:
+    tags:
+      application: ${spring.application.name}
+spring:
+  application:
+    name: prometheus-alert
+
+## 自定义 metrics
+monitor:
+  metrics:
+    pay:
+      payEventPv: pay_event_pv
